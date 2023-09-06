@@ -1,10 +1,10 @@
 export class Response<T> {
-    private status: number;
+    private status: number | null | undefined;
     private systemData: string = new Date().toISOString();
-    private message: string;
+    private message: string | null | undefined;
     private data: T | null | undefined;
 
-    public setStatus(status: number): void{
+    public setStatus(status: number | null | undefined): void{
         this.status = status;
     }
 
@@ -14,11 +14,11 @@ export class Response<T> {
         }
     }
 
-    public setMessage(message: string) {
+    public setMessage(message: string | null | undefined) {
         this.message = message;
     }
 
-    public getStatus(): number{
+    public getStatus(): number | null | undefined{
        return this.status;
     }
 
@@ -26,7 +26,7 @@ export class Response<T> {
         return  this.systemData;
     }
 
-    public getMessage(): string {
+    public getMessage(): string | null | undefined {
 		return this.message;
 	}
 
