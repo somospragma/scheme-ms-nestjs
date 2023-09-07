@@ -23,10 +23,8 @@ export class ValidationPipe implements PipeTransform<any> {
 
     let hashMapResp = new Map<string, object>();
     Object.entries(obj).forEach(([key, value]) => {
-      console.log(value);
       let internalMsn = [];
       Object.entries(value).forEach(([keyInternal, valueInternal]) => {
-        console.log(valueInternal);
         internalMsn.push(valueInternal);
       });
 
@@ -35,12 +33,9 @@ export class ValidationPipe implements PipeTransform<any> {
     });
     
     const objResp = Object.fromEntries(hashMapResp);
-
-    console.log(objResp);
     
-    const responseBody = ResponseUtils.callResponse(ConstMessages.BAD_REQUEST,objResp,HttpStatus.BAD_REQUEST);
-
     if (errors.length > 0) {
+      const responseBody = ResponseUtils.callResponse(ConstMessages.BAD_REQUEST,objResp,HttpStatus.BAD_REQUEST);
       throw new BadRequestException(responseBody);
     }
     return value;
