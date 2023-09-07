@@ -1,10 +1,7 @@
-import { HttpService } from '@nestjs/axios';
 import { Injectable,HttpStatus} from '@nestjs/common';
-import { AxiosResponse } from 'axios';
-import { Observable, map } from 'rxjs';
 import { Response } from 'src/domain/response/response.request';
 import { ResponseUtils } from 'src/utils/ResponseUtils.util';
-import { DogClient } from 'src/config/dog-client.config';
+import { DogClient } from 'src/rest-client/dog-client.rest-client';
 
 @Injectable()
 export class AppService {
