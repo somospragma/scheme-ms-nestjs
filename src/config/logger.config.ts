@@ -25,4 +25,4 @@ export class Logger implements LoggerService {
    * Write a 'verbose' level log.
    */
   verbose?(message: any, ...optionalParams: any[]) {}
-}5
+};

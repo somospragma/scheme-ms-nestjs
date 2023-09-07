@@ -4,14 +4,15 @@ import { AppController } from './rest/app/app.controller';
 import { AppService } from './business/app/app.service';
 import { ValidationPipe } from './pipes/validation.pipe';
 import { HttpModule } from '@nestjs/axios';
-import { DogClient } from 'src/rest-client/dog-client.rest-client';
+import { DogClient } from 'src/http/dog-client.rest-client';
 
 @Module({
-  imports: [ 
+  imports: [
     HttpModule.register({
-    timeout: 5000,
-    maxRedirects: 5,
-  }),],
+      timeout: 5000,
+      maxRedirects: 5,
+    }),
+  ],
   controllers: [AppController],
   providers: [
     DogClient,
@@ -19,6 +20,7 @@ import { DogClient } from 'src/rest-client/dog-client.rest-client';
       provide: APP_PIPE,
       useClass: ValidationPipe,
     },
-    AppService],
+    AppService,
+  ],
 })
 export class AppModule {}

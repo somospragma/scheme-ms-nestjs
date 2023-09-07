@@ -3,8 +3,6 @@ import { AppService } from '../../business/app/app.service';
 import { Response } from '../../domain/response/response.request';
 import { CreateUserRequest } from 'src/domain/request/create-user.request';
 import { ValidationPipe } from 'src/pipes/validation.pipe';
-import { AxiosResponse } from 'axios';
-import { Observable } from 'rxjs';
 
 @Controller()
 export class AppController {
