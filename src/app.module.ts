@@ -4,7 +4,7 @@ import { AppController } from './rest/app/app.controller';
 import { AppService } from './business/app/app.service';
 import { ValidationPipe } from './pipes/validation.pipe';
 import { HttpModule } from '@nestjs/axios';
-import { DogClient } from 'src/http/dog-client.rest-client';
+import { DogClient } from 'src/http/dog-client.http';
 
 @Module({
   imports: [
