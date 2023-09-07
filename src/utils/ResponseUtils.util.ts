@@ -6,11 +6,10 @@ export class ResponseUtils {
 	}
 
 	public static callResponse<T>(msg: string, data: T | null | undefined, status: number) {
-
-        const response: Response<T> = new Response<T>();
+		const response: Response<T> = new Response<T>();
 		response.setData(data);
 		response.setMessage(msg);
 		response.setStatus(status);
 		return response;
 	}
-}
+}	

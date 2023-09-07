@@ -13,7 +13,7 @@ export class ValidationPipe implements PipeTransform<any> {
     const object = plainToInstance(metatype, value);
     const errors = await validate(object);
 
-    let hashMap = new Map<string, object>();
+    let hashMap = new Map<string, {[type: string]: string;} | undefined>();
 
     errors.forEach( (value) => {
       hashMap.set(value.property,value.constraints);
@@ -21,15 +21,14 @@ export class ValidationPipe implements PipeTransform<any> {
 
     const obj = Object.fromEntries(hashMap);
 
-    let hashMapResp = new Map<string, object>();
-    Object.entries(obj).forEach(([key, value]) => {
-      let internalMsn = [];
+    let hashMapResp = new Map<string, string[]>();
+
+    Object.entries(obj).forEach(([key, value ]) => {
+      let internalMsn: string[]= [];
       Object.entries(value).forEach(([keyInternal, valueInternal]) => {
         internalMsn.push(valueInternal);
       });
-
       hashMapResp.set(key, internalMsn);
-
     });
     
     const objResp = Object.fromEntries(hashMapResp);

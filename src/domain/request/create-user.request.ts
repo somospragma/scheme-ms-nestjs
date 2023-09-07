@@ -1,11 +1,10 @@
 import { IsString, IsInt, IsDefined } from 'class-validator';
 
 export class CreateUserRequest {
-  
-  @IsDefined()  
+  @IsDefined()
   @IsString()
   name: string;
-   
+
   @IsDefined()
   @IsInt()
   age: number;
