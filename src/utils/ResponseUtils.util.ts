@@ -1,5 +1,5 @@
 import { HttpStatus } from '@nestjs/common';
-import { Response } from '../domain/response/Response.request';
+import { Response } from '../domain/response/response.request';
 
 export class ResponseUtils {
 	constructor() {
@@ -7,7 +7,7 @@ export class ResponseUtils {
 
 	public static callResponse<T>(msg: string, data: T | null | undefined, status: number) {
 
-        const response: Response<typeof data> = new Response<typeof data>();
+        const response: Response<T> = new Response<T>();
 		response.setData(data);
 		response.setMessage(msg);
 		response.setStatus(status);
