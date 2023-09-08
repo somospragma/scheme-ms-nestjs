@@ -33,12 +33,8 @@ export class ContextException {
      * The Context delegates some work to the IStrategy object instead of
      * implementing multiple versions of the algorithm on its own.
      */
-    public doAction(exception: HttpException): Response<any> {
-        // ...
-        console.log('Context: data using the IStrategy (not sure how it\'ll do it)');
+    public doAction(exception: HttpException): Response<string> {
         const result = this.IStrategy.doProcessError(exception);
-  
         return result;
-        // ...
     }
 }
