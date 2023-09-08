@@ -3,6 +3,7 @@ import { validate } from 'class-validator';
 import { ResponseUtils } from 'src/utils/ResponseUtils.util';
 import { ConstMessages } from 'src/utils/ConstMessages.util';
 import { plainToInstance } from 'class-transformer';
+import { ValidationRequestError } from 'src/exception/custom-errors/validationRequestError.exception';
 
 @Injectable()
 export class ValidationPipe implements PipeTransform<any> {
@@ -35,7 +36,7 @@ export class ValidationPipe implements PipeTransform<any> {
     
     if (errors.length > 0) {
       const responseBody = ResponseUtils.callResponse(ConstMessages.BAD_REQUEST,objResp,HttpStatus.BAD_REQUEST);
-      throw new BadRequestException(responseBody);
+      throw new ValidationRequestError(responseBody);
     }
     return value;
   }

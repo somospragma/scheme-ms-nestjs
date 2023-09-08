@@ -1,4 +1,4 @@
-import { Controller, Get, Res, Post, Body } from '@nestjs/common';
+import { Controller, Get, Res, Post, Body, UseFilters } from '@nestjs/common';
 import { AppService } from '../../business/app/app.service';
 import { Response } from '../../domain/response/response.request';
 import { CreateUserRequest } from 'src/domain/request/create-user.request';
