@@ -9,6 +9,7 @@ export class DefaultExeptionStrategy implements IStrategy {
         /* aqui va un logger */
         const getType = exception.name.toString();
         console.log(getType);
-        return ResponseUtils.callResponse(ConstMessages.DEFAULT_ERROR,"Internal Server Error", 500);
+        
+        return ResponseUtils.callResponse(ConstMessages.DEFAULT_ERROR,"Internal Server Error", exception.getStatus());
     }
 }
