@@ -1,4 +1,4 @@
-import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException, HttpStatus } from '@nestjs/common';
+import { PipeTransform, Injectable, ArgumentMetadata, HttpStatus } from '@nestjs/common';
 import { validate } from 'class-validator';
 import { ResponseUtils } from 'src/utils/ResponseUtils.util';
 import { ConstMessages } from 'src/utils/ConstMessages.util';
