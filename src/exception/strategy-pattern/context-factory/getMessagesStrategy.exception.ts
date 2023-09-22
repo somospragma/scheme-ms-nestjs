@@ -21,7 +21,7 @@ export class GetMessagesStrategy {
         return resultData.length > 0  ? resultData[0] : this.defaultExeption;
     }
 
-    public run(type: string, exception: HttpException): Response<string> {
+    public run(type: string, exception: HttpException): Response<any> {
         const context = new ContextException();
         context.setIStrategy(this.getType(type));
         return context.doAction(exception);
